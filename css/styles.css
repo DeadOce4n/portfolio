@@ -94,7 +94,6 @@ footer {
 .odd { color: var(--color-fg); background-color: var(--color-bg); }
 .even { color: var(--color-bg); background-color: var(--color-fg); }
 .transparent { background-color: transparent !important; }
-.centered { align-self: center; }
 
 .icons {
     font-size: 2.5em;
@@ -104,7 +103,6 @@ footer {
     align-items: center;
     margin-bottom: 1rem;
     width: min(95%, 15em);
-    margin-inline: auto;
 }
 .icons.centered { justify-content: center; }
 .icon {
@@ -180,12 +178,11 @@ footer {
         align-items: center;
     }
     .split > * { flex-basis: 100%; }
-    .split.asymmetrical > *:first-child { flex-basis: 60%; }
-    .split.asymmetrical > *:last-child { flex-basis: 40%; }
-    .reverse {
-        flex-direction: row-reverse;
-    }
+    .split.asymmetrical > *:last-child { flex-basis: 60%; }
+    .split.asymmetrical > *:first-child { flex-basis: 40%; }
+    .reverse { flex-direction: row-reverse; }
     .reverse .project { align-items: flex-end; }
+    .reverse .project .icons { justify-content: flex-end; }
     .avatar { margin: 0rem; }
     .icons { gap: 2rem; font-size: 2em; }
 }
