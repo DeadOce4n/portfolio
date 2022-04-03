@@ -153,21 +153,101 @@ footer {
     justify-content: center;
 }
 
-.navbar {
-    width: min(80%, 70rem);
-    height: 4rem;
+nav {
     position: fixed;
+    width: 100vw;
+    height: 4rem;
+    font-size: 1rem;
+}
+
+.navbar {
+    width: min(90%, 70rem);
+    position: relative;
+    height: 100%;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     padding: 1rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-.nav-icon { transition: transform 0.1s, color 0.5s; }
-.nav-icon:hover { transform: scale(1.25); }
+.nav-start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-menu {
+    position: absolute;
+    top: 5.5rem;
+    right: 1rem;
+    visibility: hidden;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow:scroll;
+    transition: max-height 0.5s, visibility 0.5s;
+    filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.1));
+    scrollbar-width: none;
+}
+
+.nav-menu::-webkit-scrollbar { display: none; }
+
+.nav-link {
+    width: 7rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-alt);
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.nav-link.even { background-color: var(--color-fg-alt); }
+
+.visible {
+    visibility: visible;
+    max-height: 100vh;
+}
+
+.burger {
+    margin: 0;
+    padding: 0.5rem;
+    width: 8rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--color-bg-alt);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.burger:active {
+    transform: scale(0.9);
+}
+
+.burger.even { background-color: var(--color-fg-alt); }
+
+.burger-line {
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-fg);
+}
+
+.burger.even .burger-line { background-color: var(--color-bg); }
 
 @media only screen and (min-width: 40em) {
     :root { font-size: 16px; }
@@ -185,4 +265,5 @@ footer {
     .reverse .project .icons { justify-content: flex-end; }
     .avatar { margin: 0rem; }
     .icons { gap: 2rem; font-size: 2em; }
+    nav { left: 0; }
 }
