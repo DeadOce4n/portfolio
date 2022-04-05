@@ -121,7 +121,7 @@ footer {
 .icon.with-name span {
     font-size: 0.75rem;
     position: absolute;
-    top: 2.75rem;
+    top: 3.25rem;
 }
 .icon.img {
     display: flex;
@@ -283,5 +283,6 @@ nav {
     .reverse .project .icons { justify-content: flex-end; }
     .avatar { margin: 0rem; }
     .icons { gap: 3rem; font-size: 2em; }
+    .icon.with-name span { top: 2.75rem;  }
     nav { left: 0; }
 }
