@@ -79,9 +79,22 @@ const setupNavEvents = () => {
   })
 }
 
+const setupNavLinks = () => {
+  const navLinks = document.querySelectorAll('.nav-link')
+  for (const navLink of navLinks) {
+    navLink.addEventListener('mouseenter', () => {
+      navLink.lastChild.classList.add('visible')
+    })
+    navLink.addEventListener('mouseleave', () => {
+      navLink.lastChild.classList.remove('visible')
+    })
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setupTextInterval()
   setupNavObserver()
   setupBurger()
   setupNavEvents()
+  setupNavLinks()
 })

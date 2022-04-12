@@ -222,12 +222,14 @@ nav {
 .nav-link {
     width: 7rem;
     display: flex;
-    gap: 0.5rem;
     align-items: center;
-    justify-content: center;
     background-color: var(--color-bg-alt);
     padding: 0.5rem;
     border-radius: 10px;
+}
+
+.nav-link i {
+    margin: 0 0.5rem;
 }
 
 .nav-link.even { background-color: var(--color-fg-alt); }
@@ -284,5 +286,32 @@ nav {
     .avatar { margin: 0rem; }
     .icons { gap: 3rem; font-size: 2em; }
     .icon.with-name span { top: 2.75rem;  }
-    nav { left: 0; }
+    nav { height: 100%; width: 9rem; left: 1rem; overflow: hidden; }
+    .nav-menu {
+        visibility: visible; max-height: unset; top: 50%; left: 1rem;
+        transform: translateY(calc(-1rem - 50%));
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .nav-link {
+        height: 2rem;
+        width: min-content;
+    }
+    .nav-link span {
+        visibility: hidden;
+        max-width: 0;
+        opacity: 0;
+        transition: all 0.5s;
+    }
+    .nav-link span.visible {
+        visibility: visible;
+        max-width: 100rem;
+        opacity: 1;
+        margin-right: 0.5rem;
+        transition: all 0.2s;
+    }
+    .burger { display: none; }
 }
