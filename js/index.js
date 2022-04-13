@@ -91,10 +91,37 @@ const setupNavLinks = () => {
   }
 }
 
+const setupCarousel = () => {
+  let visibleIndex = 0
+  const projects = Array.from(document.querySelector('.carousel').children)
+    .filter(child => Array.from(child.classList).includes('container'))
+  const prevButton = document.querySelector('.carousel-button.prev')
+  const nextButton = document.querySelector('.carousel-button.next')
+
+  const changeVisibleIndex = delta => {
+    visibleIndex += delta
+
+    if (visibleIndex > projects.length - 1) visibleIndex = projects.length - 1
+    if (visibleIndex < 0) visibleIndex = 0
+
+    projects[visibleIndex].classList.add('visible')
+
+    projects.forEach(project => {
+      if (projects.indexOf(project) !== visibleIndex) {
+        project.classList.remove('visible')
+      }
+    })
+  }
+
+  nextButton.addEventListener('click', () => changeVisibleIndex(1))
+  prevButton.addEventListener('click', () => changeVisibleIndex(-1))
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setupTextInterval()
   setupNavObserver()
   setupBurger()
   setupNavEvents()
   setupNavLinks()
+  setupCarousel()
 })

@@ -269,6 +269,55 @@ nav {
 
 .burger.even .burger-line { background-color: var(--color-bg); }
 
+.carousel {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.carousel > div.container {
+    visibility: hidden;
+    opacity: 0;
+    max-width: 0;
+    margin: 0;
+    transition: opacity 0.5s;
+}
+
+.carousel > div.container.visible {
+    visibility: visible;
+    opacity: 1;
+    max-width: 100vw;
+    margin-inline: auto;
+}
+
+.carousel-buttons {
+    visibility: visible;
+    position: absolute;
+    bottom: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.carousel-button {
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-bg);
+    background-color: var(--color-fg-alt);
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.1s;
+}
+
+.carousel-button:active {
+    transform: scale(0.95);
+}
+
 @media only screen and (min-width: 40em) {
     :root { font-size: 16px; }
     .split {
@@ -314,4 +363,5 @@ nav {
         transition: all 0.2s;
     }
     .burger { display: none; }
+    .carousel-buttons { right: 0; bottom: 4rem; transform: translateX(-50%); }
 }
